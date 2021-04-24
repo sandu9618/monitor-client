@@ -9,7 +9,7 @@ export class WebSocketService {
 
   private webSocket: WebSocket;
   private sensorData: SensorDataDto[] = [];
-  // private sensorDataUpdated = new Subject<SensorDataDto[]>();
+  private sensorDataUpdated = new Subject<SensorDataDto[]>();
 
   constructor() {
 
@@ -22,22 +22,22 @@ export class WebSocketService {
       console.log('Open: ', event);
     };
 
-    // this.webSocket.onmessage = (event) => {
-    //   console.log(event);
-    //   const sensorDataDto = JSON.parse(event.data);
-    //   console.log(sensorDataDto);
-    //   // this.sensorData.push(sensorDataDto);
-    //   // this.sensorDataUpdated.next([...this.sensorData]);
-    // };
+    this.webSocket.onmessage = (event) => {
+      // console.log(event);
+      const sensorDataDto = JSON.parse(event.data);
+      console.log(sensorDataDto);
+      this.sensorData.push(sensorDataDto);
+      this.sensorDataUpdated.next([...this.sensorData]);
+    };
 
     this.webSocket.onclose = (event) => {
       console.log('Close: ', event);
     };
   }
 
-  // public getSensorData(){
-  //   return this.sensorDataUpdated.asObservable();
-  // }
+  public getSensorData(){
+    return this.sensorDataUpdated.asObservable();
+  }
 
 
   public closeWebSocket() {

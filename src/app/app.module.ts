@@ -8,6 +8,9 @@ import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {KeycloakHttpInterceptorServiceService} from './keycloak-http-interceptor-service.service';
 import { ChartComponent } from './chart/chart.component';
+import { LineComponent } from './line/line.component';
+import {ChartModule, DateTimeCategoryService, DateTimeService, LineSeriesService, StripLineService} from '@syncfusion/ej2-angular-charts';
+
 
 // tslint:disable-next-line:typedef
 function initializeKeycloak(keycloak: KeycloakService) {
@@ -32,14 +35,16 @@ function initializeKeycloak(keycloak: KeycloakService) {
   declarations: [
     AppComponent,
     TestRestrctedComponent,
-    ChartComponent
+    ChartComponent,
+    LineComponent
   ],
   imports: [
-    AppRoutingModule, BrowserModule, KeycloakAngularModule
+    AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
     // { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
+    DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService
   ],
   bootstrap: [AppComponent]
 })

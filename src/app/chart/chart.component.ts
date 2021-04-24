@@ -8,17 +8,16 @@ import {SensorDataDto} from '../models/sensorDataDto';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
-  ngOnInit(): void {
-  }
 
-  // sensorData: SensorDataDto[];
-  //
-  // constructor(private webSocketService: WebSocketService) { }
-  //
-  // ngOnInit(): void {
-  //   this.webSocketService.getSensorData().subscribe(sensorData => {
-  //     this.sensorData = sensorData;
-  //   });
-  // }
+
+  sensorData: SensorDataDto[] = [];
+
+  constructor(private webSocketService: WebSocketService) { }
+
+  ngOnInit(): void {
+    this.webSocketService.getSensorData().subscribe(sensorData => {
+      this.sensorData = sensorData;
+    });
+  }
 
 }
