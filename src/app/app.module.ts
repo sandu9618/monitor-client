@@ -7,9 +7,14 @@ import { TestRestrctedComponent } from './test-restrcted/test-restrcted.componen
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {KeycloakHttpInterceptorServiceService} from './keycloak-http-interceptor-service.service';
-import { ChartComponent } from './chart/chart.component';
+import { SensorChartComponent } from './sensor-chart/sensor-chart.component';
 import { LineComponent } from './line/line.component';
 import {ChartModule, DateTimeCategoryService, DateTimeService, LineSeriesService, StripLineService} from '@syncfusion/ej2-angular-charts';
+import { ChartComponent } from './chart/chart.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PastAlertsComponent } from './past-alerts/past-alerts.component';
+import { SensorComponent } from './sensor/sensor.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 // tslint:disable-next-line:typedef
@@ -35,8 +40,13 @@ function initializeKeycloak(keycloak: KeycloakService) {
   declarations: [
     AppComponent,
     TestRestrctedComponent,
+    SensorChartComponent,
+    LineComponent,
     ChartComponent,
-    LineComponent
+    DashboardComponent,
+    PastAlertsComponent,
+    SensorComponent,
+    SettingsComponent
   ],
   imports: [
     AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {SensorDataDto} from '../../models/sensorDataDto';
+import DateTimeFormat = Intl.DateTimeFormat;
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,15 @@ export class WebSocketService {
     };
 
     this.webSocket.onmessage = (event) => {
-      // console.log(event);
-      const sensorDataDto = JSON.parse(event.data);
+
+      let temp = JSON.parse(event.data);
+      let sensorDataDto: SensorDataDto = {
+        sensorId : temp.sensorId,
+        date: new Date(temp.date.year, temp.date.monthValue, temp.date.dayOfMonth, temp.date.hour, temp.date.minute, temp.date.second),
+        value: temp.value,
+      };
       console.log(sensorDataDto);
+
       this.sensorData.push(sensorDataDto);
       this.sensorDataUpdated.next([...this.sensorData]);
     };
