@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestRestrctedComponent } from './test-restrcted/test-restrcted.component';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {KeycloakHttpInterceptorServiceService} from './keycloak-http-interceptor-service.service';
 import { ChartComponent } from './chart/chart.component';
 import { LineComponent } from './line/line.component';
@@ -17,9 +17,10 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
+        // url: 'http://4093c00f3ebc.ngrok.io/auth',
         url: 'http://localhost:8080/auth',
-        realm: 'heroes',
-        clientId: 'spa-heroes-backend',
+        realm: 'SoftwareArchitecture',
+        clientId: 'client_app',
       },
       initOptions: {
         onLoad: 'check-sso',
@@ -39,11 +40,11 @@ function initializeKeycloak(keycloak: KeycloakService) {
     LineComponent
   ],
   imports: [
-    AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule
+    AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule, HttpClientModule
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
-    // { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
+    { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
+    { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
     DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService
   ],
   bootstrap: [AppComponent]
