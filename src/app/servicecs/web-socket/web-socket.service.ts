@@ -11,8 +11,8 @@ export class WebSocketService {
   private sensorData: SensorDataDto[] = [];
   // private sensorDataUpdated = new Subject<SensorDataDto[]>();
 
-  constructor(webSocket: WebSocket) {
-    this.webSocket = webSocket;
+  constructor() {
+
   }
 
   public openWebSocket(){
