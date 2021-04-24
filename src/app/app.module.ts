@@ -7,6 +7,7 @@ import { TestRestrctedComponent } from './test-restrcted/test-restrcted.componen
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {KeycloakHttpInterceptorServiceService} from './keycloak-http-interceptor-service.service';
+import { ChartComponent } from './chart/chart.component';
 
 // tslint:disable-next-line:typedef
 function initializeKeycloak(keycloak: KeycloakService) {
@@ -30,14 +31,15 @@ function initializeKeycloak(keycloak: KeycloakService) {
 @NgModule({
   declarations: [
     AppComponent,
-    TestRestrctedComponent
+    TestRestrctedComponent,
+    ChartComponent
   ],
   imports: [
     AppRoutingModule, BrowserModule, KeycloakAngularModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
-    { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
+    // { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
+    // { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
   ],
   bootstrap: [AppComponent]
 })
