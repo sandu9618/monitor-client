@@ -8,6 +8,7 @@ import DateTimeFormat = Intl.DateTimeFormat;
 })
 export class WebSocketService {
 
+  // @ts-ignore
   private webSocket: WebSocket;
   private sensorData: SensorDataDto[] = [];
   private sensorDataUpdated = new Subject<SensorDataDto[]>();
@@ -16,8 +17,12 @@ export class WebSocketService {
 
   }
 
+  // tslint:disable-next-line:typedef
   public openWebSocket(){
-    this.webSocket = new WebSocket('ws://localhost:8080/chat?user=client');
+    console.log('openWebSocket');
+
+    const loggedUserName = sessionStorage.getItem('loggedUserName');
+    this.webSocket = new WebSocket('ws://localhost:8095/chat?user=' + loggedUserName);
 
     this.webSocket.onopen = (event) => {
       console.log('Open: ', event);
@@ -42,11 +47,13 @@ export class WebSocketService {
     };
   }
 
+  // tslint:disable-next-line:typedef
   public getSensorData(){
     return this.sensorDataUpdated.asObservable();
   }
 
 
+  // tslint:disable-next-line:typedef
   public closeWebSocket() {
     this.webSocket.close();
   }
