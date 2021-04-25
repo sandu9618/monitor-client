@@ -12,7 +12,7 @@ export class AppComponent implements OnInit, OnDestroy{
   constructor(public webSocketService: WebSocketService) { }
 
   ngOnInit(): void {
-    // this.webSocketService.openWebSocket();
+    this.webSocketService.openWebSocket();
   }
 
   ngOnDestroy(): void {

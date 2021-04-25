@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AlertServiceService} from '../servicecs/alert-service/alert-service.service';
+import {AlertDto} from '../models/alert-dto';
 
 @Component({
   selector: 'app-past-alerts',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PastAlertsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private alertService: AlertServiceService) { }
+
+  public pastAlerts: AlertDto[] = [];
 
   ngOnInit(): void {
+    this.alertService.getPastAlerts().
+      subscribe((data: any) => {
+        console.log(data);
+        this.pastAlerts = data.data;
+    });
   }
 
 }

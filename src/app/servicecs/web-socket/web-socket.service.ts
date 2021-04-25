@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
-import {SensorDataDto} from '../../models/sensorDataDto';
+import {SensorDataDto} from '../../models/sensor-data-dto';
 import DateTimeFormat = Intl.DateTimeFormat;
 
 @Injectable({
@@ -22,7 +22,7 @@ export class WebSocketService {
     console.log('openWebSocket');
 
     const loggedUserName = sessionStorage.getItem('loggedUserName');
-    this.webSocket = new WebSocket('ws://localhost:8095/chat?user=' + loggedUserName);
+    this.webSocket = new WebSocket('ws://localhost:8095/chat?user=' + 'chamil');
 
     this.webSocket.onopen = (event) => {
       console.log('Open: ', event);
