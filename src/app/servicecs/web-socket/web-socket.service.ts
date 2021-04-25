@@ -22,13 +22,14 @@ export class WebSocketService {
     console.log('openWebSocket');
 
     const loggedUserName = sessionStorage.getItem('loggedUserName');
-    this.webSocket = new WebSocket('ws://localhost:8095/chat?user=' + 'chamil');
+    this.webSocket = new WebSocket('ws://localhost:8095/chat?user=' + loggedUserName);
 
     this.webSocket.onopen = (event) => {
       console.log('Open: ', event);
     };
 
     this.webSocket.onmessage = (event) => {
+      console.log(event);
 
       let temp = JSON.parse(event.data);
       let sensorDataDto: SensorDataDto = {

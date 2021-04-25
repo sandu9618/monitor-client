@@ -11,6 +11,7 @@ export class AlertServiceService {
   constructor(private http: HttpClient) { }
 
   public  getPastAlerts(): Observable<any>{
-    return this.http.get(`${this.apiUrl}/user?user=' + 'chamil'`);
+    const loggedUserName = sessionStorage.getItem('loggedUserName');
+    return this.http.get(`${this.apiUrl}/user?user='` + loggedUserName);
   }
 }
