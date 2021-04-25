@@ -3,7 +3,7 @@ import {isPlatformBrowser} from '@angular/common';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import {SensorDataDto} from '../models/sensorDataDto';
+import {SensorDataDto} from '../models/sensor-data-dto';
 import {WebSocketService} from '../servicecs/web-socket/web-socket.service';
 
 
@@ -34,6 +34,7 @@ export class ChartComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:use-lifecycle-interface
   ngAfterViewInit():void {
     // Chart code goes in here
     this.browserOnly(() => {
