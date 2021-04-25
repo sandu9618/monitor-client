@@ -52,5 +52,15 @@ export class UserServiceService {
     });
   }
 
+  public getUserNotificationTypes(): Observable<any>{
+    let username = sessionStorage.getItem('loggedInUser') ? sessionStorage.getItem('loggedInUser') : 'milan';
+    return this.http.get<any>(this.apiUrl + '/' + username + '/notifiers', {headers: this.headers});
+  }
+
+  public updateUserNotificationTypes(notifierTypes: string[]): Observable<any>{
+    let username = sessionStorage.getItem('loggedInUser') ? sessionStorage.getItem('loggedInUser') : 'milan';
+    return this.http.put<any>(this.apiUrl + '/' + username + '/notifiers', notifierTypes, {headers: this.headers});
+  }
+
 
 }
