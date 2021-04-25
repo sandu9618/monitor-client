@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>MonitorClient</title>
+  <title>Monitor Client</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -18,42 +18,62 @@
   <!-- Style.css -->
   <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/jquery.mCustomScrollbar.css">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
-  <app-root></app-root>
-  <!-- Warning Section Ends -->
-  <!-- Required Jquery -->
-  <script type="text/javascript" src="/assets/js/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/js/jquery-ui/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="/assets/js/popper.js/popper.min.js"></script>
-  <script type="text/javascript" src="/assets/js/bootstrap/js/bootstrap.min.js"></script>
-  <!-- jquery slimscroll js -->
-  <script type="text/javascript" src="/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
-  <!-- modernizr js -->
-  <script type="text/javascript" src="/assets/js/modernizr/modernizr.js"></script>
-  <!-- am chart -->
-  <script src="/assets/pages/widget/amchart/amcharts.min.js"></script>
-  <script src="/assets/pages/widget/amchart/serial.min.js"></script>
-  <!-- Todo js -->
-  <script type="text/javascript " src="/assets/pages/todo/todo.js "></script>
-  <!-- Custom js -->
-  <!--script type="text/javascript" src="/assets/pages/dashboard/custom-dashboard.js"></script-->
-  <script type="text/javascript" src="/assets/js/script.js"></script>
-  <script type="text/javascript " src="/assets/js/SmoothScroll.js"></script>
-  <script src="/assets/js/pcoded.min.js"></script>
-  <script src="/assets/js/demo-12.js"></script>
-  <script src="/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script>
-    var $window = $(window);
-    var nav = $('.fixed-button');
-    $window.scroll(function(){
-      if ($window.scrollTop() >= 200) {
-        nav.addClass('active');
-      }
-      else {
-        nav.removeClass('active');
-      }
-    });
-  </script>
+<app-root></app-root>
+<!-- Warning Section Ends -->
+<!-- Required Jquery -->
+
+
+<script type="text/javascript" src="/assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="/assets/js/modernizr/modernizr.js"></script>
+<!-- am chart -->
+<script src="/assets/pages/widget/amchart/amcharts.min.js"></script>
+<script src="/assets/pages/widget/amchart/serial.min.js"></script>
+<script type="text/javascript " src="/assets/pages/todo/todo.js "></script>
+<!-- Custom js -->
+<script type="text/javascript" src="/assets/pages/dashboard/custom-dashboard.js"></script>
+<script type="text/javascript" src="/assets/js/script.js"></script>
+<script type="text/javascript " src="/assets/js/SmoothScroll.js"></script>
+<script src="/assets/js/pcoded.min.js"></script>
+<script src="/assets/js/demo-12.js"></script>
+<script src="/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"
+        integrity="sha512-g2PN+aYR0KupTVwea5Ppqw4bxWLLypWdd+h7E0ydT8zF+/Y2Qpk8Y1SnzVw6ZCVJPrgB/91s3VfhVhP7Y4+ucw=="
+        crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+<script>
+  var $window = $(window);
+  var nav = $('.fixed-button');
+  $window.scroll(function () {
+    if ($window.scrollTop() >= 200) {
+      nav.addClass('active');
+    } else {
+      nav.removeClass('active');
+    }
+  });
+</script>
 </body>
 </html>
