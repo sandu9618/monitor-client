@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PastAlertsComponent } from './past-alerts/past-alerts.component';
 import { SensorComponent } from './sensor/sensor.component';
 import { SettingsComponent } from './settings/settings.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 // tslint:disable-next-line:typedef
@@ -50,7 +51,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     SettingsComponent
   ],
   imports: [
-    AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule, HttpClientModule
+    AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule, HttpClientModule, FormsModule, ReactiveFormsModule
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
