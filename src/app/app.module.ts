@@ -53,8 +53,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule, HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
-    { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
+    // { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
+    // { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
     DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService
   ],
   bootstrap: [AppComponent]

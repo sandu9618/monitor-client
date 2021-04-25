@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WebSocketService} from '../servicecs/web-socket/web-socket.service';
-import {SensorDataDto} from '../models/sensorDataDto';
+import {SensorDataDto} from '../models/sensor-data-dto';
 
 @Component({
   selector: 'app-chart-sensor',

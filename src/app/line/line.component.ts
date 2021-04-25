@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {SensorDataDto} from '../models/sensorDataDto';
+import {SensorDataDto} from '../models/sensor-data-dto';
 
 @Component({
   selector: 'app-line',
