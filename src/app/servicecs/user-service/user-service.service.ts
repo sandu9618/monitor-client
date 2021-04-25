@@ -25,6 +25,7 @@ export class UserServiceService {
     });
   }
 
+
   public getUserNotificationTypes(): Observable<any>{
     let username = sessionStorage.getItem('loggedInUser') ? sessionStorage.getItem('loggedInUser') : 'milan';
     return this.http.get<any>(this.apiUrl + '/' + username + '/notifiers', {headers: this.headers});
