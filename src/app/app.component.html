@@ -51,7 +51,9 @@
 
         <div class="navbar-container container-fluid nav-color">
           <ul class="nav-left">
-            <li><div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div></li>
+            <li>
+              <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+            </li>
             <li><a href="#!" onclick="javascript:toggleFullScreen()"><i class="ti-fullscreen"></i></a></li>
           </ul>
           <ul class="nav-right">
@@ -67,7 +69,8 @@
                 </li>
                 <li>
                   <div class="media">
-                    <img class="d-flex align-self-center img-radius" src="assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                    <img class="d-flex align-self-center img-radius" src="assets/images/avatar-4.jpg"
+                         alt="Generic placeholder image">
                     <div class="media-body">
                       <h5 class="notification-user">John Doe</h5>
                       <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -111,10 +114,8 @@
                   </a>
                 </li>
 
-                <li class="side-padding">
-                  <a href="auth-normal-sign-in.html">
-                    <i class="ti-layout-sidebar-left"></i> Logout
-                  </a>
+                <li (click)="logout()" class="side-padding">
+                  <i  class="ti-layout-sidebar-left"></i> Logout
                 </li>
               </ul>
             </li>

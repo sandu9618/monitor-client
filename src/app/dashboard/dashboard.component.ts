@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserServiceService} from '../servicecs/user-service/user-service.service';
+import {Sensor} from '../models/sensor';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  sensors: Sensor[] = [];
+  constructor(private userServiceService: UserServiceService) { }
 
   ngOnInit(): void {
+    this.userServiceService.getSensors().subscribe(sensor => {
+      this.sensors = sensor;
+    });
   }
 
+  // tslint:disable-next-line:typedef
+  onCardClick(sensorId: string) {
+    this.userServiceService.selectSensors(sensorId);
+  }
 }
