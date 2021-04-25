@@ -5,20 +5,9 @@
 
         <div class="page-body">
           <div class="row">
-            <div class="col-md-6 col-xl-3" >
-              <app-sensor></app-sensor>
+            <div *ngFor="let sensor of sensors" class="col-md-6 col-xl-3" >
+              <app-sensor (click)="onCardClick(sensor.sensorId)" [sensor]="sensor" ></app-sensor>
             </div>
-            <div class="col-md-6 col-xl-3" >
-              <app-sensor></app-sensor>
-            </div>
-            <div class="col-md-6 col-xl-3" >
-              <app-sensor></app-sensor>
-            </div>
-            <div class="col-md-6 col-xl-3" >
-              <app-sensor></app-sensor>
-            </div>
-
-
             <!-- Statestics Start -->
           </div>
           <div class="row">

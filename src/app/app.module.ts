@@ -15,7 +15,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PastAlertsComponent } from './past-alerts/past-alerts.component';
 import { SensorComponent } from './sensor/sensor.component';
 import { SettingsComponent } from './settings/settings.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 // tslint:disable-next-line:typedef
@@ -52,12 +51,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
     SettingsComponent
   ],
   imports: [
-    AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule, HttpClientModule, FormsModule, ReactiveFormsModule
+    AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule, HttpClientModule
   ],
   providers: [
 
-    // { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
-    // { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
+    { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
+    { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
     // DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService
 
   ],
