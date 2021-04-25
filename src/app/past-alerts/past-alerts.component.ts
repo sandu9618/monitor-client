@@ -17,7 +17,7 @@ export class PastAlertsComponent implements OnInit {
     this.alertService.getPastAlerts().
       subscribe((data: any) => {
         console.log(data);
-        this.pastAlerts = data.data;
+        this.pastAlerts = data.body;
     });
   }
 
