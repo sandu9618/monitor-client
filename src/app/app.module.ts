@@ -29,6 +29,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
       },
       initOptions: {
         onLoad: 'check-sso',
+        checkLoginIframe: true,
         silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
       },
       enableBearerInterceptor: true,
@@ -53,9 +54,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule, HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
     { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
-    DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService
+    { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
+    // DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService
   ],
   bootstrap: [AppComponent]
 })
