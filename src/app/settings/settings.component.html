@@ -32,12 +32,12 @@
                 </div>
                 <div class="card-block">
                   <h4 class="sub-title">Choose your preferred notification channel</h4>
-                  <form>
+                  <form [formGroup]="settingsForm" (submit)="update()">
                     <div class="row m-t-25 text-left">
                       <div class="col-md-4">
                         <div class="checkbox-fade fade-in-primary">
                           <label>
-                            <input type="checkbox" value="">
+                            <input type="checkbox" name="emailCheck" formControlName="emailCheck">
                             <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
                             <span class="text-inverse">via Email</span>
                           </label>
@@ -46,7 +46,7 @@
                       <div class="col-md-4">
                         <div class="checkbox-fade fade-in-primary">
                           <label>
-                            <input type="checkbox" value="">
+                            <input type="checkbox" name="voiceCheck" formControlName="voiceCheck">
                             <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
                             <span class="text-inverse">via Voice Call</span>
                           </label>
@@ -55,7 +55,7 @@
                       <div class="col-md-4">
                         <div class="checkbox-fade fade-in-primary">
                           <label>
-                            <input type="checkbox" value="">
+                            <input type="checkbox" name="smsCheck" formControlName="smsCheck">
                             <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
                             <span class="text-inverse">via Text Message</span>
                           </label>
@@ -67,7 +67,7 @@
 
                     <div class="row m-t-30">
                       <div class="col-md-4">
-                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect m-b-20">Update</button>
+                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect m-b-20">Update</button>
                       </div>
                     </div>
                   </form>
