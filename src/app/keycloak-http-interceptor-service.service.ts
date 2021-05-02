@@ -14,8 +14,8 @@ export class KeycloakHttpInterceptorServiceService implements HttpInterceptor{
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    console.log('pppppppppppppppppppppppppppppppppppppppppppppppppppppp');
-    console.log(this.keycloakAngular.getKeycloakInstance().token);
+    // console.log('pppppppppppppppppppppppppppppppppppppppppppppppppppppp');
+    // console.log(this.keycloakAngular.getKeycloakInstance().token);
 
     const authrequest = req.clone({
       headers: req.headers.set('authorization', 'Bearer ' )

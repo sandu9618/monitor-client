@@ -23,7 +23,7 @@ export class UserServiceService {
   'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
   });
 
-  private apiUrl = environment.apiRrl + 'user';
+  private apiUrl = environment.apiRrl + '/user';
   constructor(private http: HttpClient) { }
 
   public  save(userDto: UserDto): void{
@@ -33,11 +33,13 @@ export class UserServiceService {
   }
 
   public getSensors(): Observable<Sensor[]>{
-     this.http.get<{status: boolean, message: string; body: Sensor[] }>
+    console.log('getSensors is calling -----------------------------------');
+    this.http.get<{status: boolean, message: string; body: Sensor[] }>
     (this.apiUrl + '/' + sessionStorage.getItem('loggedUserName') + '/sensors' ).subscribe(r => {
+      console.log(r);
       this.sensors.next([...r.body]);
     });
-     return this.sensors.asObservable();
+    return this.sensors.asObservable();
   }
 
   // tslint:disable-next-line:variable-name
@@ -54,12 +56,12 @@ export class UserServiceService {
   }
 
   public getUserNotificationTypes(): Observable<any>{
-    let username = sessionStorage.getItem('loggedInUser') ? sessionStorage.getItem('loggedInUser') : 'milan';
+    const username = sessionStorage.getItem('loggedUserName');
     return this.http.get<any>(this.apiUrl + '/' + username + '/notifiers', {headers: this.headers});
   }
 
   public updateUserNotificationTypes(notifierTypes: string[]): Observable<any>{
-    let username = sessionStorage.getItem('loggedInUser') ? sessionStorage.getItem('loggedInUser') : 'milan';
+    const username = sessionStorage.getItem('loggedUserName');
     return this.http.put<any>(this.apiUrl + '/' + username + '/notifiers', notifierTypes, {headers: this.headers});
   }
 

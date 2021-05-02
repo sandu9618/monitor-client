@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiRrl: "http://localhost:8095",
-  socketUrl: "ws://localhost:8095/chat?user="
+  apiRrl: 'http://localhost:8095',
+  socketUrl: 'ws://localhost:8095/chat?user='
 };
 
 /*

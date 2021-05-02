@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {SensorDataDto} from '../../models/sensor-data-dto';
 import DateTimeFormat = Intl.DateTimeFormat;
-import {environment} from "../../../environments/environment";
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,6 @@ export class WebSocketService {
 
   }
 
-  // @ts-ignore
   public ws: WebSocket;
   public createObservableSocket(): Observable<string> {
     const socketUrl = environment.socketUrl;
@@ -32,9 +31,9 @@ export class WebSocketService {
     });
   }
 
-  public sendMessage(message: any): void {
-    this.ws.send(message);
-  }
+  // public sendMessage(message: any): void {
+  //   this.ws.send(message);
+  // }
 
   // tslint:disable-next-line:typedef
   public openWebSocket(){
@@ -49,8 +48,8 @@ export class WebSocketService {
 
     this.webSocket.onmessage = (event) => {
 
-      let temp = JSON.parse(event.data);
-      let sensorDataDto: SensorDataDto = {
+      const temp = JSON.parse(event.data);
+      const sensorDataDto: SensorDataDto = {
         sensorId : temp.sensorId,
         date: new Date(temp.date.year, temp.date.monthValue, temp.date.dayOfMonth, temp.date.hour, temp.date.minute, temp.date.second),
         value: temp.value,

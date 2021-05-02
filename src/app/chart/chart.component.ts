@@ -29,7 +29,6 @@ export class ChartComponent implements OnInit {
   ngOnInit(): void {
     this.webSocketService.getSensorData().subscribe(sensorData => {
       this.sensorData = sensorData;
-      console.log(sensorData);
       this.ngAfterViewInit();
     });
   }
