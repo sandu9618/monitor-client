@@ -32,7 +32,7 @@ export class KeycloakGuard extends KeycloakAuthGuard {
 
     const userName = this.keycloakAngular.getUsername();
     sessionStorage.setItem('loggedUserName', userName);
-    this.webSocketService.openWebSocket();
+    // this.webSocketService.openWebSocket();
 
     await this.keycloakAngular.loadUserProfile().then(r => {
       console.log(r.createdTimestamp);

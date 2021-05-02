@@ -7,7 +7,7 @@
           <div class="card">
             <div class="card-header">
               <h5>Pass Alerts</h5>
-              
+
               <div class="card-header-right">
                 <ul class="list-unstyled card-option">
                   <li><i class="icofont icofont-simple-left "></i></li>
@@ -31,8 +31,8 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let alert of pastAlerts; index as i">
+                        <td>{{i+1}}</td>
                         <td>{{alert.sensorId}}</td>
-                        <td>{{alert.date}}</td>
                         <td>{{alert.date |  date:'medium'}}</td>
                         <td>{{alert.value}}</td>
                     </tr>
