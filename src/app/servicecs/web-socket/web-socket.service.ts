@@ -47,6 +47,7 @@ export class WebSocketService {
     };
 
     this.webSocket.onmessage = (event) => {
+      console.log(event);
 
       const temp = JSON.parse(event.data);
       const sensorDataDto: SensorDataDto = {
