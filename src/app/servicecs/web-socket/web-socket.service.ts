@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {SensorDataDto} from '../../models/sensor-data-dto';
 import DateTimeFormat = Intl.DateTimeFormat;
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,29 @@ export class WebSocketService {
 
   }
 
+  public ws: WebSocket;
+  public createObservableSocket(): Observable<string> {
+    const socketUrl = environment.socketUrl;
+    const loggedUserName = sessionStorage.getItem('loggedUserName');
+    this.ws = new WebSocket(socketUrl + loggedUserName);
+
+    return Observable.create((observer: { next: (arg0: any) => any; error: (arg0: Event) => any; complete: () => any; }) => {
+      this.ws.onmessage = event => observer.next(event.data);
+      this.ws.onerror = event => observer.error(event);
+      this.ws.onclose = event => observer.complete();
+    });
+  }
+
+  // public sendMessage(message: any): void {
+  //   this.ws.send(message);
+  // }
+
   // tslint:disable-next-line:typedef
   public openWebSocket(){
     console.log('openWebSocket');
-
+    const socketUrl = environment.socketUrl;
     const loggedUserName = sessionStorage.getItem('loggedUserName');
-    this.webSocket = new WebSocket('ws://localhost:8095/chat?user=' + loggedUserName);
+    this.webSocket = new WebSocket(socketUrl + loggedUserName);
 
     this.webSocket.onopen = (event) => {
       console.log('Open: ', event);
@@ -30,8 +48,8 @@ export class WebSocketService {
 
     this.webSocket.onmessage = (event) => {
 
-      let temp = JSON.parse(event.data);
-      let sensorDataDto: SensorDataDto = {
+      const temp = JSON.parse(event.data);
+      const sensorDataDto: SensorDataDto = {
         sensorId : temp.sensorId,
         date: new Date(temp.date.year, temp.date.monthValue, temp.date.dayOfMonth, temp.date.hour, temp.date.minute, temp.date.second),
         value: temp.value,

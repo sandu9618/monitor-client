@@ -7,10 +7,10 @@ import {SettingsComponent} from './settings/settings.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path : '', component: DashboardComponent, canActivate: []},
-  {path: 'test', component: TestRestrctedComponent, canActivate: []},
-  {path: 'history', component: PastAlertsComponent, canActivate: []},
-  {path: 'settings', component: SettingsComponent, canActivate: []}
+  { path : '', component: DashboardComponent, canActivate: [KeycloakGuard]},
+  {path: 'test', component: TestRestrctedComponent, canActivate: [KeycloakGuard]},
+  {path: 'history', component: PastAlertsComponent, canActivate: [KeycloakGuard]},
+  {path: 'settings', component: SettingsComponent, canActivate: [KeycloakGuard]}
 ];
 
 @NgModule({

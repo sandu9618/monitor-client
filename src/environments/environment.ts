@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiRrl: 'http://localhost:8095',
+  socketUrl: 'ws://localhost:8095/chat?user='
 };
 
 /*
