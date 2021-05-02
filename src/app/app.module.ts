@@ -49,15 +49,15 @@ function initializeKeycloak(keycloak: KeycloakService) {
     DashboardComponent,
     PastAlertsComponent,
     SensorComponent,
-    SettingsComponent
+    SettingsComponent,
   ],
   imports: [
     AppRoutingModule, BrowserModule, KeycloakAngularModule, ChartModule, HttpClientModule, FormsModule, ReactiveFormsModule
   ],
   providers: [
 
-    // { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
-    // { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
+   // { provide: APP_INITIALIZER, useFactory: initializeKeycloak, multi: true, deps: [KeycloakService]},
+   // { provide: HTTP_INTERCEPTORS, useClass: KeycloakHttpInterceptorServiceService, multi: true },
     // DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService
 
   ],

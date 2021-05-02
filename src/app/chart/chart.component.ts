@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Inject, NgZone, OnInit, PLATFORM_ID,} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, NgZone, OnInit, PLATFORM_ID, } from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
@@ -35,19 +35,19 @@ export class ChartComponent implements OnInit {
   }
 
   // tslint:disable-next-line:use-lifecycle-interface
-  ngAfterViewInit():void {
+  ngAfterViewInit(): void {
     // Chart code goes in here
     this.browserOnly(() => {
       am4core.useTheme(am4themes_animated);
 
-      if(this.chart){
-        this.chart.dispose();
+      if (this.chart){
+        // this.chart.dispose();
       }
-      let chart = am4core.create('statestics-chart', am4charts.XYChart);
+      const chart = am4core.create('statestics-chart', am4charts.XYChart);
 
       chart.paddingRight = 20;
 
-      let data = [];
+      const data = [];
       let visits = 10;
       for (let i = 1; i < 366; i++) {
         visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
@@ -57,22 +57,22 @@ export class ChartComponent implements OnInit {
 
       chart.data = this.sensorData;
 
-      let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+      const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
       dateAxis.renderer.grid.template.location = 0;
       dateAxis.dateFormats.setKey('hour', 'HH:mm');
 
-      let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+      const valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
       // valueAxis.tooltip.disabled = true;
       valueAxis.renderer.minWidth = 35;
 
-      let series = chart.series.push(new am4charts.LineSeries());
+      const series = chart.series.push(new am4charts.LineSeries());
       series.dataFields.dateX = 'date';
       series.dataFields.valueY = 'value';
       series.tooltipText = '{valueY.value}';
 
       chart.cursor = new am4charts.XYCursor();
 
-      let scrollbarX = new am4charts.XYChartScrollbar();
+      const scrollbarX = new am4charts.XYChartScrollbar();
       scrollbarX.series.push(series);
       chart.scrollbarX = scrollbarX;
 

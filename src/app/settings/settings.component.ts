@@ -67,12 +67,13 @@ export class SettingsComponent implements OnInit {
             text: 'Updating Success'
           });
         }
-        
+
       },
       error => {
         console.log(error);
       }
     );
   }
+
 
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {SensorDataDto} from '../models/sensor-data-dto';
+import {Sensor} from '../models/sensor';
 
 @Component({
   selector: 'app-sensor',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sensor.component.css']
 })
 export class SensorComponent implements OnInit {
+
+  @Input() sensor: Sensor;
 
   constructor() { }
 

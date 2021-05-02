@@ -6,8 +6,8 @@
         <div class="page-body">
           <div class="card">
             <div class="card-header">
-              <h5>Pass alerts</h5>
-              <!--span>use class <code>table-hover</code> inside table element</span-->
+              <h5>Pass Alerts</h5>
+              
               <div class="card-header-right">
                 <ul class="list-unstyled card-option">
                   <li><i class="icofont icofont-simple-left "></i></li>
@@ -24,17 +24,17 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Sensor Id</th>
-                    <th>Date And Time</th>
+                    <th>Sensor ID</th>
+                    <th>Date & Time</th>
                     <th>Value</th>
                   </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let alert of pastAlerts; index as i">
-                      <td>{{i+1}}</td>
-                      <td>{{alert.sensorId}}</td>
-                      <td>{{alert.date |  date:'medium'}}</td>
-                      <td>{{alert.value}}</td>
+                        <td>{{alert.sensorId}}</td>
+                        <td>{{alert.date}}</td>
+                        <td>{{alert.date |  date:'medium'}}</td>
+                        <td>{{alert.value}}</td>
                     </tr>
                   </tbody>
                 </table>
